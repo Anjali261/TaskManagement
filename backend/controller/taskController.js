@@ -75,7 +75,7 @@ export const getTaskById =async(req,res) =>{
         try{
             const task = await Task.findById(req.params.id);
             if (task && task.user.toString() === req.user._id.toString()) {
-              await task.remove();
+              await task.deleteOne();
               res.json({ message: "Task removed" });
             } else {
               res.status(404).json({ message: "Task not found" });
