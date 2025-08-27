@@ -1,13 +1,20 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
-
+import auth from "./routes/auth.js"
+import task from "./routes/taskRoute.js"
 
 dotenv.config();
 const app = express();
+app.use(express.json());
+
+app.use("/api/auth" ,auth);
+app.use("/api/task" , task);
+
 connectDB();
 
-const PRT = process.env.PORT ||4000
+const PORT = process.env.PORT ||4000
+
 
  
 
