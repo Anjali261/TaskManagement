@@ -21,15 +21,17 @@ export const createTask = async(req,res) =>{
 
 
 // Get all Tasks
-export const getTasks = async(req,res) =>{
-    try{
-        const tasks = await Task.find({user: req.user._id});
-        res.status(200).json(tasks);
-    }catch(error){
-        res.status(500).json({message:error.message ,tasks:{getTasks}});
+export const getTasks = async (req, res) => {
+    try {
+      const tasks = await Task.find()                
+        .populate("user", "name",  )               
+        .sort({ createdAt: -1 });                   
+  
+      res.status(200).json(tasks);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
-}
-
+  };
 // Get task by id
 export const getTaskById =async(req,res) =>{
     try{

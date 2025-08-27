@@ -103,7 +103,7 @@ export default function TaskItem({
       <div className="ml-4 flex flex-col gap-2">
         <button
           onClick={toggleStatus}
-          className="px-2 py-1 border rounded text-sm"
+          className="px-3 py-2 border rounded text-sm hover:bg-green-500"
         >
           {task.status === "Completed" ? "Mark Pending" : "Mark Completed"}
         </button>
@@ -112,13 +112,13 @@ export default function TaskItem({
             <button
               disabled={loading}
               onClick={save}
-              className="px-2 py-1 bg-green-600 text-white rounded text-sm"
+              className="px-3 py-2 bg-green-600 text-white rounded text-sm hover:bg-green-500 "
             >
               Save
             </button>
             <button
               onClick={() => setEditing(false)}
-              className="px-2 py-1 border rounded text-sm"
+              className="px-3 py-2 border rounded text-sm hover:bg-green-500"
             >
               Cancel
             </button>
@@ -127,13 +127,13 @@ export default function TaskItem({
           <>
             <button
               onClick={() => setEditing(true)}
-              className="px-2 py-1 border rounded text-sm"
+              className="px-2 py-1 border rounded text-sm hover:bg-green-500"
             >
               Edit
             </button>
             <button
               onClick={remove}
-              className="px-2 py-1 border rounded text-sm"
+              className="px-2 py-1 border rounded text-sm hover:bg-red-700"
             >
               Delete
             </button>

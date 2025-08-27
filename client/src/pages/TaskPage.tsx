@@ -4,6 +4,7 @@ import TaskForm from "../components/TaskForm";
 import TaskItem from "../components/TaskItem";
 import { clearToken } from "../utils/auth";
 import type { Task } from "../types";
+import { Link } from "react-router-dom";
 
 export default function TasksPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -52,21 +53,25 @@ export default function TasksPage() {
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <header className="flex justify-between items-center mb-6">
-        <h1 className="text-xl font-bold">Tasks</h1>
+        <h1 className="text-xl font-bold hover:bg-blue-600 ">Tasks</h1>
         <div>
           <button
             onClick={() => {
               clearToken();
               location.href = "/login";
             }}
-            className="px-3 py-1 border rounded mr-2"
+            className="px-3 py-2 border rounded-lg mr-2 hover:bg-red-600 "
           >
             Logout
           </button>
+          <Link to="/tasks">
+          <button className="px-2 py-2 border rounded-lg mr-2 hover:bg-blue-600 ">See All Tasks</button>
+
+          </Link>
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value as any)}
-            className="border p-1 rounded"
+            className="border p-1 rounded-lg  hover:bg-blue-600 "
           >
             <option>All</option>
             <option>Pending</option>
@@ -97,3 +102,5 @@ export default function TasksPage() {
     </div>
   );
 }
+
+

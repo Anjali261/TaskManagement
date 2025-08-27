@@ -41,7 +41,7 @@ export default function TaskForm({
         />
         <button
           disabled={loading}
-          className="px-4 py-2 bg-indigo-600 text-white rounded"
+          className="px-5 py-2 bg-indigo-600 text-white rounded hover:bg-green-500"
         >
           Add
         </button>

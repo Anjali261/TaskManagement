@@ -5,11 +5,17 @@ export type User = {
     token?: string
     }
     
+
 export type Task = {
-    _id?: string
-    user?: string
-    title: string
-    description: string
-    status?: 'Pending' | 'Completed'
-    createdAt?: string
-    }
+    _id: string;
+    title: string;
+    description: string;
+    status: "Pending" | "Completed";
+    user: {
+      _id: string;
+      name: string;
+    } | string; 
+    createdAt?: string;
+    updatedAt?: string;
+  };
+  
