@@ -27,7 +27,7 @@ export default function TasksPage() {
 
   useEffect(() => {
     fetchTasks();
-  }, [handleCreate]);
+  }, []);
 
 
   const handleUpdate = async (updated: Task) => {
