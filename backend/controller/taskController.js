@@ -10,7 +10,7 @@ export const createTask = async(req,res) =>{
 
         const task = new Task({user: req.user._id , title , description});
         const createdTask = await task.save();
-        res.status(201).json({message:"Task created sucessfully" ,taskcreated: {createTask}})
+        res.status(201).json({message:"Task created sucessfully" ,task: {createdTask}})
 
     }catch(error){
     res.status(500).json({ message: error.message });
@@ -26,7 +26,7 @@ export const getTasks = async(req,res) =>{
         const tasks = await Task.find({user: req.user._id});
         res.status(200).json(tasks);
     }catch(error){
-        res.status(500).json({message:error.message});
+        res.status(500).json({message:error.message ,tasks:{getTasks}});
     }
 }
 
